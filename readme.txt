@@ -8,7 +8,7 @@ Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Embed live GoldAPI.io precious metals prices using shortcodes and a lightweight refresh widget. No API key required by default.
+Embed live GoldAPI.io precious metals prices using shortcodes and a lightweight refresh widget including scrap gold/silver calculator. No API key required by default.
 
 == Description ==
 
@@ -22,7 +22,7 @@ Advanced users can add a GoldAPI.io API key under Settings > GoldAPI Widgets to 
 
 `https://www.goldapi.io/api/XAU/AUD`
 
-Free mode refreshes no faster than every 30 minutes. API key mode supports refresh intervals as low as 10 seconds.
+Free mode refreshes no faster than every 30 minutes (180 seconds). API key mode supports refresh intervals as low as 10 seconds.
 
 Supported metals:
 
