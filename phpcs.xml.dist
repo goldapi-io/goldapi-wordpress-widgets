@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<ruleset name="GoldAPI Live Price Widgets">
+	<description>WordPress coding standards for GoldAPI Live Gold Price Widgets.</description>
+
+	<arg name="extensions" value="php"/>
+	<arg name="parallel" value="8"/>
+
+	<file>goldapi-live-price-widgets.php</file>
+	<file>includes</file>
+
+	<exclude-pattern>vendor/*</exclude-pattern>
+	<exclude-pattern>node_modules/*</exclude-pattern>
+
+	<rule ref="WordPress"/>
+</ruleset>

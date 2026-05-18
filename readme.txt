@@ -8,7 +8,7 @@ Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Embed live GoldAPI.io precious metals prices using shortcodes and a lightweight refresh widget including scrap gold/silver calculator. No API key required by default.
+Add live gold, silver, platinum, and palladium price widgets and scrap metal calculator to WordPress using GoldAPI.io.
 
 == Description ==
 

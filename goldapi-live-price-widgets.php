@@ -2,7 +2,7 @@
 /**
  * Plugin Name: GoldAPI Live Gold Price Widgets
  * Plugin URI: https://www.goldapi.io/
- * Description: Embed live precious metals prices from GoldAPI.io with shortcodes, widgets, and a lightweight REST-powered refresh script.
+ * Description: Add live gold, silver, platinum, and palladium price widgets to WordPress using GoldAPI.io.
  * Version: 1.0.0
  * Author: GoldAPI.io
  * Author URI: https://www.goldapi.io/

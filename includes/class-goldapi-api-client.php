@@ -13,8 +13,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Fetches GoldAPI.io prices with endpoint selection, allowlists, and caching.
  */
 final class GoldAPI_API_Client {
-	public const BRANDING_URL = 'https://www.goldapi.io/?utm_source=wordpress_plugin&utm_medium=widget&utm_campaign=live_price_widgets';
-	public const FREE_MODE_MIN_REFRESH = 1800;
+	public const BRANDING_URL             = 'https://www.goldapi.io/?utm_source=wordpress_plugin&utm_medium=widget&utm_campaign=live_price_widgets';
+	public const FREE_MODE_MIN_REFRESH    = 1800;
 	public const API_KEY_MODE_MIN_REFRESH = 10;
 
 	/**

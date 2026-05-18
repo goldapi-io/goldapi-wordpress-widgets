@@ -48,12 +48,16 @@ final class GoldAPI_REST {
 	 * @return WP_REST_Response|WP_Error
 	 */
 	public static function get_price( WP_REST_Request $request ) {
-		$options  = GoldAPI_Settings::get_options();
-		$metal    = GoldAPI_API_Client::sanitize_metal( (string) ( $request->get_param( 'metal' ) ?: 'XAU' ) );
-		$currency = GoldAPI_API_Client::sanitize_currency( (string) ( $request->get_param( 'currency' ) ?: $options['default_currency'] ) );
-		$decimals = max( 0, min( 8, absint( $request->get_param( 'decimals' ) ?: 2 ) ) );
-		$refresh  = absint( $request->get_param( 'refresh' ) ?: $options['refresh_interval'] );
-		$data     = GoldAPI_API_Client::get_price( $metal, $currency, $decimals, $refresh );
+		$options        = GoldAPI_Settings::get_options();
+		$metal_param    = $request->get_param( 'metal' );
+		$currency_param = $request->get_param( 'currency' );
+		$decimals_param = $request->get_param( 'decimals' );
+		$refresh_param  = $request->get_param( 'refresh' );
+		$metal          = GoldAPI_API_Client::sanitize_metal( (string) ( $metal_param ? $metal_param : 'XAU' ) );
+		$currency       = GoldAPI_API_Client::sanitize_currency( (string) ( $currency_param ? $currency_param : $options['default_currency'] ) );
+		$decimals       = max( 0, min( 8, absint( $decimals_param ? $decimals_param : 2 ) ) );
+		$refresh        = absint( $refresh_param ? $refresh_param : $options['refresh_interval'] );
+		$data           = GoldAPI_API_Client::get_price( $metal, $currency, $decimals, $refresh );
 
 		if ( is_wp_error( $data ) ) {
 			return new WP_Error(

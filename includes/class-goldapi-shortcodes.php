@@ -13,6 +13,11 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Registers and renders shortcodes.
  */
 final class GoldAPI_Shortcodes {
+	/**
+	 * Tracks whether frontend assets were enqueued for the current request.
+	 *
+	 * @var bool
+	 */
 	private static bool $assets_enqueued = false;
 
 	/**
@@ -143,7 +148,7 @@ final class GoldAPI_Shortcodes {
 		$rows     = array();
 
 		foreach ( $metals as $metal ) {
-			$data = GoldAPI_API_Client::get_price( $metal, $currency, $decimals, $refresh );
+			$data   = GoldAPI_API_Client::get_price( $metal, $currency, $decimals, $refresh );
 			$rows[] = is_wp_error( $data ) ? self::unavailable_data( $metal, $currency ) : $data;
 		}
 
@@ -271,10 +276,22 @@ final class GoldAPI_Shortcodes {
 				'editor_script'   => 'goldapi-live-price-widgets-block',
 				'render_callback' => array( __CLASS__, 'render_block' ),
 				'attributes'      => array(
-					'metal'    => array( 'type' => 'string', 'default' => 'XAU' ),
-					'currency' => array( 'type' => 'string', 'default' => 'USD' ),
-					'layout'   => array( 'type' => 'string', 'default' => 'card' ),
-					'refresh'  => array( 'type' => 'number', 'default' => GoldAPI_API_Client::FREE_MODE_MIN_REFRESH ),
+					'metal'    => array(
+						'type'    => 'string',
+						'default' => 'XAU',
+					),
+					'currency' => array(
+						'type'    => 'string',
+						'default' => 'USD',
+					),
+					'layout'   => array(
+						'type'    => 'string',
+						'default' => 'card',
+					),
+					'refresh'  => array(
+						'type'    => 'number',
+						'default' => GoldAPI_API_Client::FREE_MODE_MIN_REFRESH,
+					),
 				),
 			)
 		);
@@ -498,22 +515,22 @@ final class GoldAPI_Shortcodes {
 	 * @return string
 	 */
 	private static function render_calculator_widget( array $data, string $unit, float $weight, float $dealer_discount, int $quantity, float $purity, int $refresh, int $decimals, bool $show_branding ): string {
-		$units            = GoldAPI_API_Client::weight_units();
-		$metals           = GoldAPI_API_Client::supported_metals();
-		$currencies       = GoldAPI_API_Client::supported_currencies();
-		$spot_price       = isset( $data['price'] ) && is_numeric( $data['price'] ) ? (float) $data['price'] : 0.0;
-		$unit_grams       = (float) $units[ $unit ]['grams'];
-		$pure_weight      = $weight * $unit_grams * $purity * $quantity;
-		$price_per_gram   = $spot_price > 0 ? $spot_price / 31.1034768 : 0.0;
-		$value_before     = $price_per_gram * $pure_weight;
-		$dealer_margin    = $value_before * ( $dealer_discount / 100 );
-		$estimated_value  = max( 0, $value_before - $dealer_margin );
-		$price_per_kg     = $price_per_gram * 1000;
-		$currency         = (string) $data['currency'];
-		$metal            = (string) $data['metal'];
-		$purity_options   = self::purity_options();
-		$selected_purity  = self::purity_key_from_value( $purity );
-		$api_key_mode     = GoldAPI_API_Client::is_api_key_mode();
+		$units           = GoldAPI_API_Client::weight_units();
+		$metals          = GoldAPI_API_Client::supported_metals();
+		$currencies      = GoldAPI_API_Client::supported_currencies();
+		$spot_price      = isset( $data['price'] ) && is_numeric( $data['price'] ) ? (float) $data['price'] : 0.0;
+		$unit_grams      = (float) $units[ $unit ]['grams'];
+		$pure_weight     = $weight * $unit_grams * $purity * $quantity;
+		$price_per_gram  = $spot_price > 0 ? $spot_price / 31.1034768 : 0.0;
+		$value_before    = $price_per_gram * $pure_weight;
+		$dealer_margin   = $value_before * ( $dealer_discount / 100 );
+		$estimated_value = max( 0, $value_before - $dealer_margin );
+		$price_per_kg    = $price_per_gram * 1000;
+		$currency        = (string) $data['currency'];
+		$metal           = (string) $data['metal'];
+		$purity_options  = self::purity_options();
+		$selected_purity = self::purity_key_from_value( $purity );
+		$api_key_mode    = GoldAPI_API_Client::is_api_key_mode();
 
 		ob_start();
 		?>
@@ -621,14 +638,14 @@ final class GoldAPI_Shortcodes {
 	 *
 	 * @param string $label Label.
 	 * @param string $value Value.
-	 * @param string $class Value class.
+	 * @param string $value_class Value class.
 	 * @param bool   $strong Whether value should be emphasized.
 	 */
-	private static function calculator_result_tile( string $label, string $value, string $class, bool $strong = false ): void {
+	private static function calculator_result_tile( string $label, string $value, string $value_class, bool $strong = false ): void {
 		?>
 		<div class="goldapi-calculator-tile<?php echo $strong ? ' goldapi-calculator-tile-strong' : ''; ?>">
 			<span><?php echo esc_html( $label ); ?></span>
-			<strong class="<?php echo esc_attr( $class ); ?>"><?php echo esc_html( $value ); ?></strong>
+			<strong class="<?php echo esc_attr( $value_class ); ?>"><?php echo esc_html( $value ); ?></strong>
 		</div>
 		<?php
 	}
@@ -835,5 +852,4 @@ final class GoldAPI_Shortcodes {
 
 		return trim( $change . ' ' . $chp );
 	}
-
 }
