@@ -1,4 +1,4 @@
-# GoldAPI Live Gold Price Widgets
+# GoldAPI WordPress Live Gold Price Widgets
 
 Production-ready WordPress plugin for embedding live precious metals prices from [GoldAPI.io](https://www.goldapi.io/) using shortcodes and a lightweight REST-powered refresh script.
 
