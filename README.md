@@ -10,6 +10,10 @@ https://www.goldapi.io/api/static/XAU/AUD
 
 Advanced users can add a GoldAPI.io API key under **Settings > GoldAPI Widgets** to use authenticated endpoints and refresh as frequently as every 10 seconds. Free mode refreshes no faster than every 30 minutes (1800 seconds).
 
+## Examples
+
+![](https://private-user-images.githubusercontent.com/13550565/593772541-edc6dc67-3d28-4da2-b56b-16523adab830.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzkwNjUyMzUsIm5iZiI6MTc3OTA2NDkzNSwicGF0aCI6Ii8xMzU1MDU2NS81OTM3NzI1NDEtZWRjNmRjNjctM2QyOC00ZGEyLWI1NmItMTY1MjNhZGFiODMwLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNjA1MTglMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjYwNTE4VDAwNDIxNVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPThmZmYxMDI2YmVhNDJiMTZmZjhjYmUzNjEyMzVmMTRkNDQ0ZmE2NzQyMjQxYTcyMmM2MWM2MWY3MjEwYmM5MzMmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JnJlc3BvbnNlLWNvbnRlbnQtdHlwZT1pbWFnZSUyRnBuZyJ9.iGhLfGs--IIvOdw7xtoPjCWgSBiZAVQiGXol2uSotV4)
+
 ## Shortcodes
 
 Single widget:
