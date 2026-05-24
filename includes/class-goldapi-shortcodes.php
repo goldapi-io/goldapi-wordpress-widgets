@@ -575,7 +575,7 @@ final class GoldAPI_Shortcodes {
 					</div>
 					<div class="goldapi-calculator-field">
 						<label><?php echo esc_html__( 'Spot price per troy ounce', 'goldapi-live-price-widgets' ); ?></label>
-						<span><?php echo esc_html__( 'Latest cached GoldAPI.io price', 'goldapi-live-price-widgets' ); ?></span>
+						<span><?php echo esc_html__( 'Cached GoldAPI.io price', 'goldapi-live-price-widgets' ); ?></span>
 						<input class="goldapi-calculator-spot" type="text" value="<?php echo esc_attr( number_format_i18n( $spot_price, $decimals ) ); ?>" readonly />
 					</div>
 					<div class="goldapi-calculator-field">
